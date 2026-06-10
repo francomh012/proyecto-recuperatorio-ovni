@@ -592,6 +592,50 @@ footer {
   line-height: 1.8;
 }
 
+/* ── TABLA HISTORIAL ── */
+.tabla-historial {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.tabla-historial thead {
+  background-color: #0d1215;
+}
+
+.tabla-historial th,
+.tabla-historial td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabla-historial th {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.th-ordenable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+.th-ordenable:hover {
+  color: var(--accent);
+}
+
+.tabla-historial tbody tr {
+  transition: background-color 0.15s;
+}
+
+.tabla-historial tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
 /* ── UTILITY ── */
 .hidden {
   display: none !important;

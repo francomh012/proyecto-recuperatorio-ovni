@@ -210,6 +210,7 @@ function calcularPuntaje() {
         fecha: new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }),
     });
 
+    document.getElementById('btn-limpiar').classList.remove('hidden');
     renderizarTabla();
 }
 
@@ -295,8 +296,12 @@ function ordenarPor(col) {
     renderizarTabla();
 }
 
-// ─────────────────────────────────────────────
-//  REINICIAR FORMULARIO
+function limpiarHistorial() {
+    historial = [];
+    document.getElementById('btn-limpiar').classList.add('hidden');
+    renderizarTabla();
+}
+
 // ─────────────────────────────────────────────
 function reiniciarFormulario() {
     document.getElementById('nombre-reporte').value = '';

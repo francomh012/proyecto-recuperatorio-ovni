@@ -592,6 +592,32 @@ footer {
   line-height: 1.8;
 }
 
+.historial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-limpiar {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-limpiar:hover {
+  background-color: var(--danger);
+  color: #fff;
+}
+
 /* ── TABLA HISTORIAL ── */
 .tabla-historial {
   width: 100%;

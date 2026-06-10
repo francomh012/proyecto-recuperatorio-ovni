@@ -155,10 +155,13 @@
 
       <!-- HISTORIAL -->
       <section id="historial">
-        <div class="section-header">
-          <span class="section-tag">MÓDULO 02</span>
-          <h2>Historial de Reportes</h2>
-          <p>Los reportes clasificados en esta sesión se listan aquí.</p>
+        <div class="section-header historial-header">
+          <div>
+            <span class="section-tag">MÓDULO 02</span>
+            <h2>Historial de Reportes</h2>
+            <p>Los reportes clasificados en esta sesión se listan aquí.</p>
+          </div>
+          <button id="btn-limpiar" onclick="limpiarHistorial()" class="btn-limpiar hidden">Limpiar historial</button>
         </div>
         <div id="historial-lista" class="historial-lista">
           <p class="historial-vacio">Aún no hay reportes clasificados.</p>

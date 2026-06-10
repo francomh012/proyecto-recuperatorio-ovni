@@ -106,7 +106,7 @@ function calcularPuntaje() {
   nivelEl.textContent  = nivel;
   nivelEl.className    = "resultado-nivel " + clase;
 
-  puntajeEl.textContent = "Puntaje total: " + puntaje + " / 14 pts  |  Reporte: "" + nombreReporte + ""  |  Lugar: " + lugar;
+  puntajeEl.textContent = "Puntaje total: " + puntaje + " / 14 pts  |  Reporte: " + nombreReporte + "  |  Lugar: " + lugar;
 
   recomEl.innerHTML = "<strong>Recomendación:</strong> " + recomendacion;
 

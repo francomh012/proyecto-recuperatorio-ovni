@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PURSUE — Clasificador de Evidencias UAP/OVNI</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="header-logo">
+          <span class="logo-icon">&#9650;</span>
+          <div>
+            <p class="logo-label">SISTEMA DE CLASIFICACIÓN</p>
+            <h1>PURSUE — UAP/OVNI</h1>
+          </div>
+        </div>
+        <nav>
+          <a href="#clasificador">Clasificador</a>
+          <a href="#historial">Historial</a>
+          <a href="#acerca">Acerca</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- HERO -->
+      <section id="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">NIVEL DE ACCESO: PÚBLICO — DESCLASIFICADO</p>
+          <h2>Clasificador Web de Evidencias OVNI</h2>
+          <p class="hero-desc">
+            Ingresá los datos de un avistamiento y el sistema calculará
+            automáticamente su nivel de confiabilidad según los criterios
+            de evaluación de fenómenos aéreos no identificados (UAP/OVNI).
+          </p>
+          <a href="#clasificador" class="btn-primary">Iniciar análisis &darr;</a>
+        </div>
+        <div class="hero-coords">38°52′15″N &nbsp;·&nbsp; 77°03′18″W</div>
+      </section>
+
+      <!-- CLASIFICADOR -->
+      <section id="clasificador">
+        <div class="section-header">
+          <span class="section-tag">MÓDULO 01</span>
+          <h2>Ingreso de Evidencia</h2>
+          <p>Completá todos los campos. Los marcados con <span class="req">*</span> son obligatorios.</p>
+        </div>
+
+        <div class="form-card">
+          <div id="form-error" class="form-error hidden"></div>
+
+          <!-- DATOS BÁSICOS -->
+          <fieldset>
+            <legend>Datos del Reporte</legend>
+            <div class="field-group">
+              <label for="nombre-reporte">Nombre del reporte <span class="req">*</span></label>
+              <input type="text" id="nombre-reporte" placeholder="Ej: Caso Roswell 1947" maxlength="100" />
+            </div>
+            <div class="field-group">
+              <label for="lugar">Lugar del avistamiento <span class="req">*</span></label>
+              <input type="text" id="lugar" placeholder="Ej: Área 51, Nevada, EE.UU." maxlength="100" />
+            </div>
+            <div class="field-group">
+              <label for="testigos">Cantidad de testigos <span class="req">*</span></label>
+              <select id="testigos">
+                <option value="">— Seleccioná —</option>
+                <option value="1">1 testigo</option>
+                <option value="2">2–3 testigos</option>
+                <option value="4">4 o más testigos</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="descripcion">Descripción breve <span class="req">*</span></label>
+              <textarea id="descripcion" rows="3" placeholder="Describí brevemente el fenómeno observado..."></textarea>
+            </div>
+          </fieldset>
+
+          <!-- EVIDENCIA DISPONIBLE -->
+          <fieldset>
+            <legend>Evidencia Disponible</legend>
+            <p class="fieldset-hint">Marcá todo lo que aplique al caso:</p>
+            <div class="checkbox-grid">
+              <label class="check-item">
+                <input type="checkbox" id="tiene-video" />
+                <span class="checkmark"></span>
+                <span>Existe registro de video</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="tiene-imagen" />
+                <span class="checkmark"></span>
+                <span>Existe imagen fotográfica</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="tiene-radar" />
+                <span class="checkmark"></span>
+                <span>Detección por radar confirmada</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- ANÁLISIS CIENTÍFICO -->
+          <fieldset>
+            <legend>Análisis Científico</legend>
+            <div class="field-group">
+              <label>¿Existe una explicación científica probable? <span class="req">*</span></label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="explicacion" value="si" />
+                  <span>Sí, existe explicación</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="explicacion" value="no" />
+                  <span>No, sin explicación conocida</span>
+                </label>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="tipo-fenomeno">Tipo de fenómeno observado</label>
+              <select id="tipo-fenomeno">
+                <option value="">— Seleccioná —</option>
+                <option value="luminoso">Objeto luminoso</option>
+                <option value="solido">Objeto sólido con forma definida</option>
+                <option value="formacion">Formación de objetos múltiples</option>
+                <option value="otro">Otro / Indeterminado</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <!-- BOTONES -->
+          <div class="form-actions">
+            <button id="btn-calcular" onclick="calcularPuntaje()">Clasificar evidencia</button>
+            <button id="btn-reiniciar" onclick="reiniciarFormulario()">Reiniciar</button>
+          </div>
+        </div>
+
+        <!-- RESULTADO -->
+        <div id="resultado-container" class="resultado-container hidden">
+          <div class="resultado-header">
+            <span class="resultado-tag">RESULTADO DEL ANÁLISIS</span>
+          </div>
+          <div id="resultado-nivel" class="resultado-nivel"></div>
+          <div id="resultado-puntaje" class="resultado-puntaje"></div>
+          <div id="resultado-recomendacion" class="resultado-recomendacion"></div>
+          <div class="resultado-barra-wrap">
+            <div id="resultado-barra" class="resultado-barra"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORIAL -->
+      <section id="historial">
+        <div class="section-header">
+          <span class="section-tag">MÓDULO 02</span>
+          <h2>Historial de Reportes</h2>
+          <p>Los reportes clasificados en esta sesión se listan aquí.</p>
+        </div>
+        <div id="historial-lista" class="historial-lista">
+          <p class="historial-vacio">Aún no hay reportes clasificados.</p>
+        </div>
+      </section>
+
+      <!-- ACERCA -->
+      <section id="acerca">
+        <div class="section-header">
+          <span class="section-tag">MÓDULO 03</span>
+          <h2>Acerca del Sistema</h2>
+        </div>
+        <div class="acerca-grid">
+          <div class="acerca-card">
+            <h3>¿Qué es PURSUE?</h3>
+            <p>
+              Este clasificador web está inspirado en el sistema PURSUE
+              (Presidential Unsealing and Reporting System for UAP Encounters)
+              del Departamento de Guerra de EE.UU., que publica archivos
+              desclasificados sobre fenómenos aéreos no identificados.
+            </p>
+          </div>
+          <div class="acerca-card">
+            <h3>Criterios de puntaje</h3>
+            <ul>
+              <li>Video confirmado: <strong>+3 pts</strong></li>
+              <li>Imagen fotográfica: <strong>+2 pts</strong></li>
+              <li>Detección por radar: <strong>+4 pts</strong></li>
+              <li>Más de 3 testigos: <strong>+2 pts</strong></li>
+              <li>Sin explicación científica: <strong>+3 pts</strong></li>
+            </ul>
+          </div>
+          <div class="acerca-card">
+            <h3>Niveles de clasificación</h3>
+            <ul>
+              <li><span class="badge debil">DÉBIL</span> — 0 a 4 pts</li>
+              <li><span class="badge moderada">MODERADA</span> — 5 a 8 pts</li>
+              <li><span class="badge fuerte">FUERTE</span> — 9 pts o más</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fuente">
+          Fuente de referencia:
+          <a href="https://www.war.gov/ufo/" target="_blank" rel="noopener">
+            www.war.gov/ufo — PURSUE, Departamento de Guerra de EE.UU.
+          </a>
+        </p>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <p>PURSUE — Clasificador Web de Evidencias UAP/OVNI</p>
+        <p>Proyecto académico · Programación Web I &nbsp;·&nbsp; <span id="anio"></span></p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
